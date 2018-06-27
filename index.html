@@ -1,0 +1,104 @@
+<div style="width:100%">
+    <a class="projectObj" style="background-color:brown">
+        <div class="wrap">
+            <div class="name"></div>
+
+            
+			<h1>
+                A.Hari haran
+</h1>
+            
+            <div class="txt flright"></div>
+                  
+                <p>
+                Email:hariharan.1501166@srec.ac.in
+                </p>
+                
+            </div>
+
+        
+        <div class="txt flright">
+            
+                <p>
+                PhoneNO:8883128198
+					</p>
+				
+            
+        </div>
+        <div class="txt flright">
+            
+                
+                    <p>
+                DOB:05-04-1998
+                 </p>
+                    
+                        <p>
+                Language Known:Tamil,English
+                        </p>
+
+            
+
+        </div>
+        <div class="image flleft">
+            <p>
+                Address:4 A thudiyalur main road,
+			         idigarai,
+                     Coimbatore-641022. 
+			</p>
+        </div>
+		</a>
+
+
+    <script>
+        $('.projectObj').bind('click', function (e) {
+            e.preventDefault();
+
+            var me = this;
+            var width = $(me).width() / 1.5;
+            $(me).find('.wrap').width($(me).find('.wrap').width());
+
+            $(me).animate({
+                opacity: 0,
+                marginLeft: -width
+            }, 500);
+
+            var delayN = 150;
+            var delayP = 150;
+
+            var nextEl = $(me).nextAll('.projectObj');
+            var prevEl = $(me).prevAll('.projectObj');
+
+            nextEl.each(function (index, elem) {
+                setTimeout(function () {
+
+                    $(elem).find('.wrap').width($(elem).find('.wrap').width());
+
+                    $(elem).animate({
+                        opacity: 0,
+                        marginLeft: -width
+                    }, 500, function () {
+                    });
+                }, delayN);
+                delayN += 100;
+            });
+
+            prevEl.each(function (index, elem) {
+                setTimeout(function () {
+                    $(elem).find('.wrap').width($(elem).find('.wrap').width());
+
+                    $(elem).animate({
+                        opacity: 0,
+                        marginLeft: -width
+                    }, 500, function () {
+                    });
+                }, delayP);
+                delayP += 100;
+            });
+
+            setTimeout(function () {
+                document.location = $(me).attr('href');
+            }, 1000)
+
+            return false;
+        });
+    </script>
